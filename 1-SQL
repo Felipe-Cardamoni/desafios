@@ -2,7 +2,10 @@
 
 O resultado esperado é uma consulta que retorne o ganho total da empresa por cliente que é 1.198,77 para o cliente A e 1,08 para o cliente B.
 
-Resolução:SELECT cl.nome cliente_nome, 
+Resolução:
+Meu primeiro passo foi analisar o schema das tabelas, notei que seria necessário realizar o join entre tabelas para todos os dados necessários para minha consulta.
+
+	SELECT cl.nome cliente_nome, 
 	ROUND(SUM((t.valor_total - (t.valor_total * t.percentual_desconto / 100))* ct.percentual / 100),2) valor
 		FROM cliente cl
 			INNER JOIN contrato ct
